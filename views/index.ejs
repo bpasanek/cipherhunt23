@@ -23,9 +23,9 @@
       </div>
     </div>
   </div>
-  <div class="text-secondary px-4 py-5 text-center" style="background-color: #03051E;">
+  <div class="text-secondary px-4 py-5 text-center" style="background-color:#EAE1E1;">
     <div class="py-1">
-      <h1 class="display-5 fw-bold text-white">Leaderboard</h1>
+      <h1 class="display-5 fw-bold" style="color: #03051E; ">Leaderboard</h1>
         <script>
         const scores = []
         const teams =[]
@@ -40,8 +40,8 @@
             scores.push(document.currentScript.getAttribute('score'))
           </script>
         <% }) %>
-        <div class="chart-container" style="position: relative; height:50vh; width:80vw; padding:2%">
-        <canvas id="myChart">
+        <div class="chart-container" style="position: relative; padding:2%; margin-left: auto;margin-right: auto;">
+        <canvas id="myChart" style="max-height: 600px;">
           <script>
             const ctx = document.getElementById('myChart').getContext('2d');
             const myChart = new Chart(ctx, {
@@ -72,28 +72,38 @@
                 },
                 options: {
                     scales: {
-                        y: {
-                            beginAtZero: true,
-                        },
-                        x: {
-                          beginAtZero: true,
-                          max: 5
-                        }
-                    },
-                  indexAxis: 'y',
-                  responsive: true,
+                      r: {
+                        pointLabels: {
+                          display: true,
+                          centerPointLabels: true,
+                          font: {
+                            size: 18
+                          },
+                          gridLines: {
+                             display: true,
+                             circular: true
 
-                }
+                          }
+                        },
+                        max: 5,
+                        ticks: {
+                            // forces step size to be 50 units
+                            stepSize: 1,
+                            backdropColor: '#EAE1E1',
+
+                        }
+                      }
+                    }
+                  },
+                  responsive: true,
+                  
             });
           </script>
         </canvas>
     </div>
   </div>
   </div>
-    <div style="display: flex; flex-direction: column; align-items: center; background-color:#03051E;min-height: 100vh; color: aliceblue; "
-    <p style="width: 90%;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p style="width: 90%; margin-top: 1%;">Instructions will mention QR codes. Note, no direct links from hints to QR Code pages!!! But I'm adding a symulink from here to show structure of site. Pretend that landing on QR Code 1 was triggered by scanning the first QR code. Solving that cipher will take you to next hint, even if it hasn't been released yet.</p>
-    
+    <div style="display: flex; flex-direction: column; align-items: center; background-color:#03051E;min-height: 100vh; color: aliceblue; ">
     
     </div>
     </div>
