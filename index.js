@@ -2,7 +2,7 @@ const express = require("express");
 const { google } = require("googleapis");
 const app = express();
 app.set("view engine", "ejs");
-app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"), express.urlencoded({ extended: true }));
 
 app.get("/", async (req, res) => {
   const auth = new google.auth.GoogleAuth({
