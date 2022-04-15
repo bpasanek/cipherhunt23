@@ -4,20 +4,80 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+    <title>Cipher Hunt</title>
   </head>
   <body>
-    <h1>Video Request</h1>
-    <form action="" method="POST">
-      <div>
-        <label for="request">Request</label>
-        <textarea name="request" id="request" cols="30" rows="10"></textarea>
-      </div>
-      <div>
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" />
-      </div>
-      <button type="submit">Submit</button>
-    </form>
+    <div class="p-4 text-center border-dark" style="background-color:#0B5269; color: #EAE1E1;">
+      <h1 class="mb-2">Criss | Cross | Verse: A Cipher Hunt</h1>
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center; background-color:#03051E;min-height: 100vh; color: aliceblue; "
+    <p style="width: 90%;"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <p style="width: 90%; margin-top: 1%;">Instructions will mention QR codes. Note, no direct links from hints to QR Code pages!!! But I'm adding a symulink from here to show structure of site. Pretend that landing on QR Code 1 was triggered by scanning the first QR code. Solving that cipher will take you to next hint, even if it hasn't been released yet.</p>
+    
+    <script>
+        const scores = []
+        const teams =[]
+    </script>
+    <% teamArr.forEach((team) => { %>
+      <script team= <%= team %>>
+        teams.push(document.currentScript.getAttribute('team').replace("-"," "))
+      </script>
+    <% }) %>
+    <% scoreArr.forEach((score) => { %>
+      <script score= <%= score %>>
+        scores.push(document.currentScript.getAttribute('score'))
+      </script>
+    <% }) %>
+    <div class="chart-container" style="position: relative; height:50vh; width:80vw; padding:2%">
+    <canvas id="myChart">
+      <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: teams,
+                datasets: [{
+                    label: 'Cipher Leaderboard',
+                    data: scores,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                    x: {
+                      beginAtZero: true,
+                      max: 5
+                    }
+                },
+              indexAxis: 'y',
+              responsive: true,
+
+            }
+        });
+      </script>
+    </canvas>
+    </div>
+    </div>
   </body>
 </html>
