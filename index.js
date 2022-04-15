@@ -38,4 +38,4 @@ app.get("/", async (req, res) => {
   res.render("index", { teamArr: dashTeamArr, scoreArr: scoreArr });
 });
 
-app.listen(443, () => console.log("running on 1337"));
+app.listen(process.env.PORT || 3000, () => console.log("running"));
