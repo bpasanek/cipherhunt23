@@ -19,13 +19,17 @@
       </div>
       <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Decrypt ciphers and win $500 in prizes.</h1>
-        <p class="lead">You’ve landed on the main page for <a href="https://bpasanek.github.io/puzzlepoesis/">Puzzle Poetry</a>’s 2022 <a href="http://www.hw-uva.com">Humanities Week</a> Cipher Hunt. Below please find instructions for competing and information about how to work with our hints and clues. </p>
+        <p class="lead">You’ve landed on the main page for <a href="https://bpasanek.github.io/puzzlepoesis/">Puzzle Poetry</a>’s 2022 <a href="http://www.hw-uva.com">Humanities Week</a> Cipher Hunt. Below, please find instructions for competing and information about how to work with our hints and clues. </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-lg px-4 me-md-2 fw-bold" style="background-color: #03051E; color: #EAE1E1;">Team Registration</button>
+        </div>
       </div>
     </div>
   </div>
-  <div class="text-secondary px-4 py-5 text-center" style="background-color:#EAE1E1;">
+  <div class="text-secondary px-4 py-3 text-center" style="background-color:#EAE1E1;">
     <div class="py-1">
       <h1 class="display-5 fw-bold" style="color: #03051E; ">Leaderboard</h1>
+      <p class="display-10"># of Clues Solved</p>
         <script>
         const scores = []
         const teams =[]
@@ -37,12 +41,16 @@
         <% }) %>
         <% scoreArr.forEach((score) => { %>
           <script score= <%= score %>>
-            scores.push(document.currentScript.getAttribute('score'))
+
+            scores.push(parseInt(document.currentScript.getAttribute('score')))
           </script>
         <% }) %>
-        <div class="chart-container" style="position: relative; padding:2%; margin-left: auto;margin-right: auto;">
+        <div class="chart-container" style="position: relative; padding:1%; margin-left: auto;margin-right: auto;">
         <canvas id="myChart" style="max-height: 600px;">
-          <script>
+          <script  >
+            const max = Math.max(Math.max(...scores), 5)
+            console.log(typeof scores)
+            console.log(Math.max(scores))
             const ctx = document.getElementById('myChart').getContext('2d');
             const myChart = new Chart(ctx, {
                 type: 'polarArea',
@@ -76,22 +84,18 @@
                         pointLabels: {
                           display: true,
                           centerPointLabels: true,
-                          font: {
-                            size: 18
-                          },
                           gridLines: {
                              display: true,
                              circular: true
-
                           }
                         },
-                        max: 5,
+                        max: max,
                         ticks: {
-                            // forces step size to be 50 units
                             stepSize: 1,
                             backdropColor: '#EAE1E1',
 
-                        }
+                        },
+                        
                       }
                     }
                   },
@@ -100,11 +104,20 @@
             });
           </script>
         </canvas>
+        <p class="display-15" style="margin-top: 2%;">Register <a href="https://virginia.az1.qualtrics.com/jfe/form/SV_2iaMlIEKCiU86eG">here</a> to get your team’s name on our leader board. 
+</p>
     </div>
   </div>
   </div>
     <div style="display: flex; flex-direction: column; align-items: center; background-color:#03051E;min-height: 100vh; color: aliceblue; ">
-    
+      <h1 class="display-5 fw-bold py-4" style="color: #EAE1E1; ">Instructions</h1>
+      <p style="margin-left: 20%; margin-right: 20%;">Criss-Cross-Verse is an encrypted scavenger hunt. You’ll be looking for five QR codes, hidden in plain sight around Grounds. On Monday (4/18) we release our first ciphered clue. Every day after we release another.</p>
+      <p style="margin-left: 20%; margin-right: 20%;">We know that some of our ciphers may be hard to crack, so we’ll post more hints to Instagram <a href="https://www.instagram.com/puzzlepoesis/?hl=en">@puzzlepoesis</a> as each day goes on. But crypto-geniuses may get ahead by solving ciphers and finding the correspondent QR codes in their campus locations. Each physical QR code points our aspirant verse hunters to an online form. Type in the decrypted clue at the form and get the next day’s clue ahead of schedule!</p>
+      <p style="margin-left: 20%; margin-right: 20%;">The first team to decode all the ciphers and check in around Grounds by way of the hidden QR codes wins. Five days, five ciphers, five locations. A final cipher awaits the team that makes it to the end.</p>
+      <p style="margin-left: 20%; margin-right: 20%; align-self: start;">If competition is fierce, we may also release a bonus easter egg cipher. More rules and fine print <a href="">here</a>.
+
+</p>
+
     </div>
     </div>
   </body>
