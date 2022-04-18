@@ -30,12 +30,15 @@ app.get("/", async (req, res) => {
     spreadsheetId,
     range: "Leaderboard",
   });
-  const teamArr = getRows.data.values.map((row, idx) => row[0]).slice(1);
-  const dashTeamArr = teamArr.map((team) => {
-    return team.replace(" ", "-");
+  const teamArr = getRows?.data?.values?.map((row, idx) => row[0]).slice(1);
+  const dashTeamArr = teamArr?.map((team) => {
+    return team?.replace(" ", "-");
   });
-  const scoreArr = getRows.data.values.map((row, idx) => row[1]).slice(1);
-  res.render("index", { teamArr: dashTeamArr, scoreArr: scoreArr });
+  const scoreArr = getRows?.data?.values?.map((row, idx) => row[1]).slice(1);
+  scoreFiltered = scoreArr.filter((score) => score != undefined);
+  dashFiltered = dashTeamArr.filter((team) => team != undefined);
+  console.log(scoreFiltered, dashFiltered);
+  res.render("index", { teamArr: dashFiltered, scoreArr: scoreFiltered });
 });
 
 app.listen(process.env.PORT || 3000, () => console.log("running"));

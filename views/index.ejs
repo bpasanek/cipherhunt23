@@ -34,29 +34,29 @@
         const scores = []
         const teams =[]
         </script>
-        <% teamArr.forEach((team) => { %>
+        <% teamArr?.forEach((team) => { %>
           <script team= <%= team %>>
             teams.push(document.currentScript.getAttribute('team').replace("-"," "))
           </script>
         <% }) %>
-        <% scoreArr.forEach((score) => { %>
+        <% scoreArr?.forEach((score) => { %>
           <script score= <%= score %>>
-
             scores.push(parseInt(document.currentScript.getAttribute('score')))
           </script>
         <% }) %>
         <div class="chart-container" style="position: relative; padding:1%; margin-left: auto;margin-right: auto;">
         <canvas id="myChart" style="max-height: 600px;">
           <script  >
+            console.log('testing')
             const max = Math.max(Math.max(...scores), 5)
             const ctx = document.getElementById('myChart').getContext('2d');
             const myChart = new Chart(ctx, {
                 type: 'polarArea',
                 data: {
-                    labels: teams,
+                    labels: teams.length > 0 ? teams: ['No teams yet'],
                     datasets: [{
                         label: 'Cipher Leaderboard',
-                        data: scores,
+                        data: scores.length > 0 ? scores: [0],
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
