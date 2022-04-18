@@ -32,7 +32,7 @@ app.get("/", async (req, res) => {
   });
   const teamArr = getRows?.data?.values?.map((row, idx) => row[0]).slice(1);
   const dashTeamArr = teamArr?.map((team) => {
-    return team?.replace(" ", "-");
+    return team?.replace(/ /g, "-");
   });
   const scoreArr = getRows?.data?.values?.map((row, idx) => row[1]).slice(1);
   scoreFiltered = scoreArr.filter((score) => score != undefined);

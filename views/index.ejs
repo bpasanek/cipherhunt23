@@ -36,7 +36,7 @@
         </script>
         <% teamArr?.forEach((team) => { %>
           <script team= <%= team %>>
-            teams.push(document.currentScript.getAttribute('team').replace("-"," "))
+            teams.push(document.currentScript.getAttribute('team').replace(/-/g," "))
           </script>
         <% }) %>
         <% scoreArr?.forEach((score) => { %>
