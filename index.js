@@ -37,7 +37,6 @@ app.get("/", async (req, res) => {
   const scoreArr = getRows?.data?.values?.map((row, idx) => row[1]).slice(1);
   scoreFiltered = scoreArr.filter((score) => score != undefined);
   dashFiltered = dashTeamArr.filter((team) => team != undefined);
-  console.log(scoreFiltered, dashFiltered);
   res.render("index", { teamArr: dashFiltered, scoreArr: scoreFiltered });
 });
 
