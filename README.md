@@ -1,3 +1,5 @@
+# Cipher Hunt Site originally built by the ingenious Colin Buyck for Cipher Hunt '22. His README appears below.
+
 # Google Sheets + Node.js/Express
 Simple Node.js/Express app (with EJS frontend) that integrates with Google Sheets to read/update data. This application demos the functionality with a simple "Video Request" app that uses a form to add a new row to a Google Sheet.
 
@@ -14,5 +16,3 @@ Run `nodemon index.js`
 
 ## Copyright
 (c) 2021 James Grimshaw. You are free to do what you wish with this code.
-# cipherhunt23
-# cipherhunt23
